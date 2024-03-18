@@ -61,10 +61,7 @@ body{
 .header{
    height: 7vh;
    width: 100%;
-   border: solid var(--border-color) 2px;
-   border-right: none;
-   border-left: none;
-   border-top: none;
+   border-bottom: solid var(--border-color) 2px;
    background-color: var(--background-content);
    margin-bottom: 20px;
    &__container{
@@ -83,13 +80,9 @@ body{
    }
 }
 .logo{
-   position: relative;
-   line-height: 32px;
-   position: relative;
-   &::before{
-      content: url('../images/icons/logo2.svg');
-      position: relative;
-      bottom: -8px;
+   display: flex;
+   align-items: center;
+   svg{
       margin-right: 10px;
    }
 }
@@ -124,12 +117,67 @@ body{
 }
 .main{
    width: 100%;
-   border: solid var(--border-color) 2px;
-   //box-shadow: 0px 0px 5px 2px var(--box-shadow);
+   height: 100%;
+   overflow-y: scroll;
+
+}
+.news{
+   &__article{
+      background-color: var(--background-content);
+      margin-bottom: 10px;
+      border-radius: 16px;
+      padding: 15px;
+      border: solid var(--border-color) 2px;
+   }
+}
+.communities{
    background-color: var(--background-content);
-   min-height: 85vh;
+   width: 100%;
+   height: 100%;
+   padding: 15px;
+   border: solid var(--border-color) 2px;
    border-radius: 16px;
-   padding: 30px;
+}
+.messenger{
+   background-color: var(--background-content);
+   width: 100%;
+   height: 100%;
+   padding: 15px;
+   border: solid var(--border-color) 2px;
+   border-radius: 16px;
+}
+.friends{
+   background-color: var(--background-content);
+   width: 100%;
+   height: 100%;
+   padding: 15px;
+   border: solid var(--border-color) 2px;
+   border-radius: 16px;
+}
+.recommendations{
+   &__article{
+      background-color: var(--background-content);
+      margin-bottom: 10px;
+      border-radius: 16px;
+      padding: 15px;
+      border: solid var(--border-color) 2px;
+   }
+}
+.settings{
+   background-color: var(--background-content);
+   width: 100%;
+   height: 100%;
+   padding: 15px;
+   border: solid var(--border-color) 2px;
+   border-radius: 16px;
+}
+.profile{
+   background-color: var(--background-content);
+   width: 100%;
+   height: 100%;
+   padding: 15px;
+   border: solid var(--border-color) 2px;
+   border-radius: 16px;
 }
 .aside{
    margin-right: 20px;

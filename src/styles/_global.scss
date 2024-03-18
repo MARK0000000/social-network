@@ -1,7 +1,20 @@
+::-webkit-scrollbar{
+   background-color: transparent;
+   width: 3px;
+   border: none;
+
+}
+::-webkit-scrollbar-thumb{
+   background-color: #6750A4;
+   height: 2px;
+   border: none;
+}
+
 
 html{
    overflow-x: hidden;
    overflow-y: hidden;
+   height: 100%;
 }
 body {
 	height: 100%;
@@ -11,8 +24,9 @@ body {
    color: var(--text-color);
    font-weight: 400;
    word-wrap: break-word;
+   line-height: normal;
    p{
-      line-height: 25px;
+      line-height: normal;
    }
 }
 h1{
@@ -32,13 +46,23 @@ h2{
   max-width: 994px;
   margin: 0 auto;
   padding: 0 15px;
+  height: 85vh;
   &_login{
    max-width: 700px;
+   height: auto;
    margin-top: 20vh;
   }
 }
-.container-fluid{
-   max-width: 1920px;
-   margin: 0 auto;
-   padding: 0 10px;
+@media (max-width: 1024px) {
+   html{
+      overflow-y: scroll;
+   }   
+   .container{
+      padding: 0 5px;
+      height: 100%;
+      padding-bottom: 7vh;
+      &_login{
+         height: auto;
+      }
+   }
 }

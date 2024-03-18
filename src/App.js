@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "./context/theme";
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter, HashRouter} from 'react-router-dom';
 import AppRouter from "./componenets/router/AppRouter";
 import { LanguageProvider } from "./context/language";
 import { LoggedProvider } from "./context/logged";
@@ -12,9 +12,9 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <LoggedProvider>
-          <BrowserRouter>
+          <HashRouter>
             <AppRouter/>
-          </BrowserRouter>
+          </HashRouter>
       </LoggedProvider>
       </LanguageProvider>
     </ThemeProvider>

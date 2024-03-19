@@ -19,7 +19,7 @@ html{
 body {
 	height: 100%;
    min-width: 360px;
-   font-size: 16px;
+   font-size: $textDesktop;
    font-family: 'Montserrat', sans-serif;
    color: var(--text-color);
    font-weight: 400;
@@ -32,17 +32,17 @@ body {
 h1{
    font-family: 'Montserrat', sans-serif;
    font-weight: 700;
-   font-size: 48px;
+   font-size: $textH1Desktop;
    color: var(--text-color);
 }
 h2{
    font-family: 'Montserrat', sans-serif;
    font-weight: 700;
-   font-size: 32px;
+   font-size: $textH2Desktop;
    color: var(--text-color);
 }
-
 .container{
+   display: flex;
   max-width: 994px;
   margin: 0 auto;
   padding: 0 15px;
@@ -57,10 +57,19 @@ h2{
    html{
       overflow-y: scroll;
    }   
+   body {
+      font-size: $textMobile;
+   }
+   h1{
+      font-size: $textH1Mobile;
+   }
+   h2{
+      font-size: $textH2Mobile;
+   }
+
    .container{
       padding: 0 5px;
-      height: 100%;
-      padding-bottom: 7vh;
+      min-height: 100%;
       &_login{
          height: auto;
       }

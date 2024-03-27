@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import classes from './MyButton.module.css'
+import classes from './MyButton.module.scss'
 
 
 const MyButton = ({children, ...props}) => {

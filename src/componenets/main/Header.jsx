@@ -2,6 +2,8 @@ import React, {useContext} from 'react'
 import { LanguageContext } from '../../context/language';
 import { ThemeContext } from '../../context/theme';
 import { useNavigate } from 'react-router-dom';
+import ava from '../../images/other/ава.jpg'
+import Avatar from '../UI/avatar/Avatar';
 
 export default function Header() {
     const navigate = useNavigate()
@@ -32,7 +34,7 @@ export default function Header() {
             </span>
           </div>
           <div className='profile_header' onClick={() => navigate('profile', { replace: false })}>
-            <img src="" alt="#" className='profile_header__img'/>
+            <Avatar className="profile_header__img" photo={ava}/>
             <p>Mark Shkolnik</p>
           </div>
           <svg onClick={() => navigate('settings', { replace: false })} className='header__settings' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

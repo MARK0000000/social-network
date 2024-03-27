@@ -4,7 +4,7 @@ export default function News() {
   return (
     <section className='news'>
       <article className='news__article'>
-        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio molestias ducimus optio est accusamus iusto totam! Est animi odit illum cupiditate amet! Consequuntur placeat nulla possimus deleniti numquam, at voluptas?</h1>
+        <h1>Title first level</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium esse illo, quasi at minima nostrum beatae tempora possimus, qui exercitationem rem aperiam quo nihil, est deleniti ratione cupiditate odio! Deleniti?
         Et magnam illo, nesciunt quo dolor nobis similique ullam eligendi quis ipsa magni quaerat rem suscipit exercitationem esse deleniti quia possimus architecto. Facere ullam, minus illo autem similique ad magni.
         Aperiam maiores modi, alias culpa unde natus nostrum deleniti eos soluta quisquam incidunt asperiores dignissimos eaque vitae, provident nesciunt vel libero commodi optio corrupti eligendi. Recusandae adipisci id minus quaerat.</p>

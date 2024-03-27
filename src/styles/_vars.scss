@@ -2,13 +2,14 @@
  
  @mixin f ($j, $a) {display: flex; justify-content: $j; align-items: $a;}
 
+
  $profileHeight: 4.5vh;
 
  $textDesktop: 16px;
  $textMobile: 13px;
- $textH1Desktop: 48px;
+ $textH1Desktop: 42px;
  $textH1Mobile: 32px;
- $textH2Desktop: 32px;
+ $textH2Desktop: 28px;
  $textH2Mobile: 22px;
 
  $borderRadiusDesktop: 16px;
@@ -16,3 +17,19 @@
 
  $paddingDesktop: 15px;
  $paddingMobile: 5px;
+
+ %block{
+    background-color: var(--background-content);
+    margin-bottom: 10px;
+    border-radius: $borderRadiusDesktop;
+    padding: $paddingDesktop;
+    border: solid var(--border-color) 2px;
+}
+%block_mobile{
+    background-color: var(--background-content);
+    margin-bottom: 5px;
+    border-radius: $borderRadiusMobile;
+    padding: $paddingMobile;
+    border: solid var(--border-color) 2px;
+}
+

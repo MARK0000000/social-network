@@ -10,9 +10,10 @@
     --text-color-dark: white; 
     --border-color-dark: white;
     --box-shadow-dark: rgb(255, 228, 225, 0.3); */
+    --contentHeight: 500px;
 
-    --background-light: FEF7FF;
-    --background-content-light: F7F2FA;
+    --background-light: #FEF7FF;
+    --background-content-light: #F7F2FA;
     --text-color-light: black; 
     --border-color-light: #CAC4D0;
     --box-shadow-light: #CAC4D0;

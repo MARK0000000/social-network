@@ -54,6 +54,9 @@ h2{
   }
 }
 @media (max-width: 1024px) {
+   body{
+      height: auto;
+   }
    html{
       overflow-y: scroll;
    }   
@@ -70,6 +73,7 @@ h2{
    .container{
       padding: 0 5px;
       min-height: 100%;
+      padding-bottom: 7vh;
       &_login{
          height: auto;
       }

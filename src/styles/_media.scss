@@ -20,18 +20,41 @@
         }
      }
      .communities{
-        padding: $paddingMobile;
-        border-radius: $borderRadiusMobile;
+        &__search{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+            
+        }
+        &__content{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+         }
      }
      .messenger{
         padding: $paddingMobile;
         border-radius: $borderRadiusMobile;
      }
      .friends{
-        padding: $paddingMobile;
-        border-radius: $borderRadiusMobile;
+        &__search{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+            
+        }
+        &__requests{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+         }
+        &__content{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+         }
      }
-     .recommendations{
+          .recommendations{
         padding-bottom: 7vh;
         &__article{
            border-radius: $borderRadiusMobile;
@@ -106,6 +129,10 @@
                width: 400px;
             }
          } 
+         &__posts{
+            padding: $paddingMobile;
+            border-radius: $borderRadiusMobile;
+         }
      }     
     .aside{
         display: none;

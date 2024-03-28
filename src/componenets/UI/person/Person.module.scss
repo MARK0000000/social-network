@@ -1,0 +1,14 @@
+.person{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    &__text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__lastMessage{
+        font-size: 10px;
+    }
+}

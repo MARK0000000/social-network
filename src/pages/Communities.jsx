@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import Search from './Search'
-import MyLink from './UI/link/MyLink'
-import Person from './UI/person/Person'
-
-export default function Friends() {
+import Search from '../componenets/Search'
+import Person from '../componenets/UI/person/Person'
+export default function Communities() {
   const [list, setList] = useState([
     {name: "Андрей", lastMessage: "пошел напнпрвапвровоарп"},
     {name: "Андрей"},
@@ -24,15 +22,10 @@ export default function Friends() {
 
   ])
 
-
   return (
-    <section className='friends'>
-      <Search className='friends__search'/>
-      <div className='friends__requests'>
-        <span>Запросов в друзья 0</span>
-        <MyLink text="Посмотреть запросы"/>
-      </div>
-      <div className='friends__content'>
+    <section className='communities'>
+      <Search className='communities__search'/>
+      <div className='communities__content'>
         {list.map((item) => 
           <Person name={item.name} lastMessage={item.lastMessage} photo={item.photo}/>
         )}

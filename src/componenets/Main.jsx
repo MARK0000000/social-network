@@ -1,7 +1,5 @@
-import React, {useContext, useState, useRef, useEffect} from 'react'
-import News from './News'
+import React from 'react'
 import { Outlet} from 'react-router-dom';
-import { LoggedContext } from '../context';
 import '../styles/style.scss'
 import Header from './main/Header';
 import Aside from './main/Aside';

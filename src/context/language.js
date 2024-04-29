@@ -12,6 +12,16 @@ let strings = new LocalizedStrings({
         recommendations: "Recommendations",
         communities: "Communities",
         news: "News",
+
+        singIn: "Sing-in",
+        singUp: "Sing-up",
+        forgotPass: "Forgot your password?",
+        pass: "password",
+        repeatPass: "repeat password",
+        login: "login",
+        doSingIn: "Sing-in",
+        doSingUp: "Sing-up",
+
     },
     ru: {
         messenger: "Мессенджер",
@@ -20,6 +30,17 @@ let strings = new LocalizedStrings({
         recommendations: "Рекомендации",
         communities: "Сообщества",
         news: "Новости",
+
+        singIn: "Авторизация",
+        singUp: "Регистрация",
+        forgotPass: "Забыли пароль",
+        pass: "пароль",
+        repeatPass: "повторите пароль",
+        login: "логин",
+        doSingIn: "Войти",
+        doSingUp: "Зарегестрироваться",
+
+
     }
 });
 

@@ -1,0 +1,157 @@
+@media (max-width: 1024px) {
+    .news{
+        padding-bottom: 7vh;
+        &__article{
+           border-radius: $borderRadiusMobile;
+           padding: $paddingMobile;
+           margin-bottom: 5px;
+        }
+    }
+    .communities{
+        &__search{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+            
+        }
+        &__content{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+         }
+    }
+    .messenger{
+        padding: $paddingMobile;
+        border-radius: $borderRadiusMobile;
+    }
+    .friends{
+        &__search{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+            
+        }
+        &__requests{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+         }
+        &__content{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            margin-bottom: 5px;
+         }
+    }
+    .recommendations{
+        padding-bottom: 7vh;
+        &__article{
+           border-radius: $borderRadiusMobile;
+           padding: $paddingMobile;
+           margin-bottom: 5px;
+        }
+    }
+    .settings{
+        padding: $paddingMobile;
+        border-radius: $borderRadiusMobile;
+    }
+    .profile{
+        padding: 0px;
+        border-radius: $borderRadiusMobile;
+        &__info{
+            border-radius: $borderRadiusMobile;
+            margin-bottom: 5px;
+        }
+        &__info-content{
+            margin-top: 8vh;
+            padding: 0px 15px 0px 0vh;
+            min-height: 8vh;
+            border-radius: 8px;
+        }
+        &__ava{
+            height: 10vh;
+            width: 10vh;
+            border-radius: 50%;
+            top: -5vh;
+            left: 5px;
+        }
+        &__name{
+            font-size: 20px;
+        }
+        &__info-text{
+            padding: 5px 0px 0px 12vh;
+            font-size: 10px;
+        }        
+        &__settings{
+            margin-top: 4vh;
+        }
+        &__friends{
+            margin-bottom: 5px;
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            padding-left: 15px;        
+         }
+         &__photos{
+            border-radius: $borderRadiusMobile;
+            padding: $paddingMobile;
+            &-text{
+               display: block;
+               margin-bottom: 10px;
+            }
+            &-box{
+               columns: 3;
+               height: 15vh;
+               img{
+                  width: 100%;
+                  height: 100%;
+                  border-radius: $borderRadiusMobile;
+                  border: 2px solid var(--border-color);
+                  object-fit: cover;
+               }
+            }
+            &-buttons{
+               margin-top: 10px;
+               display: flex;
+               justify-content: space-evenly;
+            }
+            &-button{
+               width: 400px;
+            }
+         } 
+         &__posts{
+            padding: $paddingMobile;
+            border-radius: $borderRadiusMobile;
+         }
+    }   
+    .login{
+        padding: 10px $paddingMobile;
+        border-radius: $borderRadiusMobile;
+        &__form{
+        padding: 0 3%;
+        }
+        &__title{
+            padding: 0 15px;
+            span{
+            transition: ease 0.5s;
+                font-size: $textMobile;
+                &.active{
+                transition: ease 0.5s;
+                    font-size: $textH1Mobile;
+                }
+                &.login__title_slash{
+                    font-size: $textH2Mobile;
+                }
+            }
+        }
+        &__btn{    
+            display: block;
+            margin: 0 auto;
+            padding: 5px 15px;
+            font-size: 14px;
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--icons-color);
+            border-radius: 5px;
+            cursor: pointer;   
+        }
+     }  
+}

@@ -1,0 +1,23 @@
+.modal{
+    overflow-y: scroll;
+    z-index: 2;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    width: 90%;
+    max-height: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    @extend %block;
+    &__close{
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
+    &_active{
+        transition: all 0.5s ease-in-out;
+        visibility: visible;
+        opacity: 1;
+    }
+}

@@ -10,7 +10,6 @@ export default function Header() {
     const { strings, changeLanguage, language} = useContext(LanguageContext);
     const {theme, changeTheme, setTheme} = useContext(ThemeContext)
   
-
   return (
     <header className="header">
       <div className='header__container'>

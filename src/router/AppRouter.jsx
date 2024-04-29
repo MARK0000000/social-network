@@ -1,11 +1,11 @@
 import React, {useContext, useEffect} from 'react';
 import IsLogged from './Islogged'
 import { Routes, Route, useNavigate} from 'react-router-dom';
-import Main from '../Main';
+import Main from '../componenets/Main';
 import { privateRoute } from '.';
-import { LoggedContext } from '../../context/logged';
-import Login from '../Login';
-import News from '../News';
+import { LoggedContext } from '../context/logged';
+import Login from '../pages/Login';
+import News from '../pages/News';
 function AppRouter() {
    const navigate = useNavigate()
    const {isLoggedIn, isLoading} = useContext(LoggedContext)

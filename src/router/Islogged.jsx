@@ -1,6 +1,6 @@
 import React, {useEffect, useContext} from 'react';
 import { Navigate, useNavigate} from 'react-router-dom';
-import { LoggedContext } from '../../context/logged';
+import { LoggedContext } from '../context/logged';
 
 const IsLogged = () => {
    const {isLoggedIn, isLoading} = useContext(LoggedContext)
@@ -12,7 +12,6 @@ const IsLogged = () => {
    }, [isLoggedIn, navigate, isLoading])
    
   return (
-
     <div>
          <Navigate to='/news'/>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "./context/theme";
 import { BrowserRouter, HashRouter} from 'react-router-dom';
-import AppRouter from "./componenets/router/AppRouter";
+import AppRouter from "./router/AppRouter";
 import { LanguageProvider } from "./context/language";
 import { LoggedProvider } from "./context/logged";
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <HashRouter>
             <AppRouter/>
           </HashRouter>
-      </LoggedProvider>
+        </LoggedProvider>
       </LanguageProvider>
     </ThemeProvider>
    </div>

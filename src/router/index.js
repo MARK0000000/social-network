@@ -1,11 +1,11 @@
-import Login from '../Login';
-import Recommendations from '../Recommendations'
-import Communities from '../Communities'
-import News from '../News';
-import Settings from '../Settings'
-import Profile from '../Profile'
-import Friends from '../Friends'
-import Massenger from '../Messenger'
+import Login from '../pages/Login';
+import Recommendations from '../pages/Recommendations'
+import Communities from '../pages/Communities'
+import News from '../pages/News';
+import Settings from '../pages/Settings'
+import Profile from '../pages/Profile'
+import Friends from '../pages/Friends'
+import Massenger from '../pages/Messenger'
 
 export const privateRoute = [
    {path: 'news', element: <News/>},

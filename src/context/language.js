@@ -21,6 +21,10 @@ let strings = new LocalizedStrings({
         login: "login",
         doSingIn: "Sing-in",
         doSingUp: "Sing-up",
+        valPassLength: "Password length is less than eight characters",
+        valPassLetters: "The password must include upper and lowercase letters of the Latin alphabet",
+        valPassSymbols: "The password must include any two characters",
+        valRepPass: "Password mismatch",
 
     },
     ru: {
@@ -39,6 +43,11 @@ let strings = new LocalizedStrings({
         login: "логин",
         doSingIn: "Войти",
         doSingUp: "Зарегестрироваться",
+        valPassLength: "Длина пароля меньше восьми символов",
+        valPassLetters: "Пароль должен включать заглавную и строчную буквы латинского алфавита",
+        valPassSymbols: "Пароль должен включать два любых знака",
+        valRepPass: "Пароли не совпадают",
+
 
 
     }

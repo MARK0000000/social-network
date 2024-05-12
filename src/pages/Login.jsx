@@ -1,4 +1,3 @@
-
 import React, {useState, useContext, useEffect, useRef} from 'react';
 import { LoggedContext } from '../context/logged';
 import { LanguageContext } from '../context/language';
@@ -6,116 +5,85 @@ import { useNavigate, useLocation} from 'react-router-dom';
 import MyButton from '../componenets/UI/button/MyButton';
 import MyInput from '../componenets/UI/input/MyInput';
 import MyLink from "../componenets/UI/link/MyLink";
-
+import { validatePassword, validateRepeatPassword } from '../utils/validation';
+import { fetchPost } from '../APi/fetchPost';
 
 const Login = ({}) => {
 
-  const { strings, changeLanguage, language} = useContext(LanguageContext);
-  const {isLoggedIn, setIsLoggedIn, isLoading,} = useContext(LoggedContext)
+  const {strings} = useContext(LanguageContext);
+  const {isLoggedIn, setIsLoggedIn} = useContext(LoggedContext)
 
   const [typeOfLog, setTypeOfLog] = useState('in')
 
-  const emailInput = useRef();
-  const loginInput = useRef();
-  const passwordInput = useRef();
-  const repeatPasswordInput = useRef();  
-
-  const url = "https://localhost:7279/api/Account/register";
-
+  const url = "https://localhost:7279/api/Account/register";//!!!!
+  
   const navigate = useNavigate()
   useEffect(() => {
     if (isLoggedIn) {
       navigate('news', { replace: true }); 
     }  
   }, [navigate, isLoggedIn]);
-  
-  async function newPersone (data) {
 
-    try {
-      const response = await fetch(url, {
-        method: "POST", 
-        body: JSON.stringify(data), 
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const json = await response.json();
+  const emailInput = useRef();
+  const loginInput = useRef();
+  const passwordInput = useRef();
+  const repeatPasswordInput = useRef();  
 
-      console.log("Успех:", JSON.stringify(json));
-      localStorage.setItem('logged', 'true')
-    } catch (error) {
-      console.error("Ошибка:", error);
-    }
-  }
-
-  async function getPersone (data) {
-  
-    try {
-      const response = await fetch(url, {
-        method: "POST", 
-        body: JSON.stringify(data), 
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const json = await response.json();
-
-      console.log("Успех:", JSON.stringify(json));
-      setIsLoggedIn(true)
-      localStorage.setItem('logged', 'true')
-
-    } catch (error) {
-      console.error("Ошибка:", error);
-    }
-  }
+  const [passwordVal, setPasswordVal] = useState([])
+  const [repPasswordVal, setRepPasswordVal] = useState("")
+  const [loaderForAuth, setloaderForAuth] = useState('')
 
   const  login = event => {
-  event.preventDefault()
+    event.preventDefault()
 
-  let email, login, password, repeatPassword;
+    let email, login, password, repeatPassword;
 
-  if (typeOfLog == 'up') {
-    const email = emailInput.current.value;
-    const login = loginInput.current.value;
-    const password = passwordInput.current.value;
-    const repeatPassword = repeatPasswordInput.current.value;
-  } else {
-    const login = loginInput.current.value;
-    const password = passwordInput.current.value;
-  }
+    if (typeOfLog == 'up') {
+      email = emailInput.current.value;
+      login = loginInput.current.value;
+      password = passwordInput.current.value;
+      repeatPassword = repeatPasswordInput.current.value;
+    } else {
+      login = loginInput.current.value;
+      password = passwordInput.current.value;
+    }
 
-  if (typeOfLog === 'up' && password !== repeatPassword) {
-    alert('Пароли не совпадают');
-    return;
-  }
-  function validatePassword(password) {
-    if (password.length < 8) {
+    let validationRepeatPassword =  validateRepeatPassword(password, repeatPassword, typeOfLog)
+    if (validationRepeatPassword !== true) {
+      setRepPasswordVal(`${strings[validationRepeatPassword]}\n`)
       return;
     }
-    if ( !/[a-z]/.test(password) || !/[A-Z]/.test(password)) {
-      return;
-    }
-    if (!/[^a-zA-Z0-9]*([!@#$%^&*][^!@#$%^&*]*[!@#$%^&*][^a-zA-Z0-9]*)|([^a-zA-Z0-9]*[^!@#$%^&*]*[^a-zA-Z0-9]*)/.test(password)) {
-      return;
-    }
-  }
-  validatePassword(password)
 
-  if(typeOfLog == 'up') {
-    const personeData = {
-      email: email,
-      username: login,
-      password: password,
+    let validationPassword = validatePassword(password)
+    if (validationPassword !== true) {
+        setPasswordVal(validationPassword.map(error => `${strings[error]}`));
+    } else {
+      if(typeOfLog == 'up') {
+        setloaderForAuth("_sending")
+        const personeData = {
+          email: email,
+          username: login,
+          password: password,
+        }
+        let newPersone = fetchPost(personeData, url)
+        if (newPersone === true) {
+          setIsLoggedIn(true)
+          localStorage.setItem('logged', 'true')  
+        }
+      }
+      if(typeOfLog == 'in') {
+        setloaderForAuth("_sending")
+        const personeData = {
+          username: login,
+          password: password,
+        }
+        let getPersone = fetchPost(personeData, url)
+        if (getPersone === true) {
+          setIsLoggedIn(true)
+          localStorage.setItem('logged', 'true')  
+        }
+      }
     }
-    newPersone(personeData)
-  }
-  if(typeOfLog == 'in') {
-    const personeData = {
-      username: login,
-      password: password,
-    }
-    getPersone(personeData)
-  }
   }
 
   return (
@@ -139,7 +107,13 @@ const Login = ({}) => {
             type="password"
             placeholder={strings.pass}
             ref={passwordInput}
+            onFocus={() => setPasswordVal([])}
           />
+          {passwordVal.map((item) => 
+            <p>
+              {item}
+            </p>
+          )}
           {typeOfLog === 'in' &&
            <MyLink text={strings.forgotPass}></MyLink>
           }
@@ -148,9 +122,15 @@ const Login = ({}) => {
             type="password" 
             placeholder={strings.repeatPass} 
             ref={repeatPasswordInput}
+            onFocus={() => setRepPasswordVal("")}
             />
           }
-          <button className='login__btn'>
+          <span>
+            {repPasswordVal}
+          </span>
+          <button 
+          className={`login__btn login__btn${loaderForAuth}`} 
+          >
             {`${typeOfLog === 'in' ? `${strings.doSingIn}` : `${strings.doSingUp}`}`}
           </button>
         </form>

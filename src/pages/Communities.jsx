@@ -19,15 +19,14 @@ export default function Communities() {
     {name: "Андрей"},
     {name: "Андрей"},
     {name: "Андрей"},
-
   ])
 
   return (
     <section className='communities'>
       <Search className='communities__search'/>
       <div className='communities__content'>
-        {list.map((item) => 
-          <Person name={item.name} lastMessage={item.lastMessage} photo={item.photo}/>
+        {list.map((item, index) => 
+          <Person key={index} name={item.name} lastMessage={item.lastMessage} photo={item.photo}/>
         )}
       </div>
     </section>

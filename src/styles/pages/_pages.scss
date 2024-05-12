@@ -171,11 +171,50 @@ position: relative;
       display: block;
       margin: 0 auto;
       padding: 5px 15px;
+      margin-top: 15px;
       font-size: 14px;
       background-color: transparent;
       color: var(--text-color);
       border: 2px solid var(--icons-color);
       border-radius: 5px;
-      cursor: pointer;   
+      cursor: pointer;
+      position: relative;
+      &:hover{
+         transition: ease-out 0.3s;
+         transform: scale(1.1);
+      }
+      &:before {
+         content: '';
+         position: absolute;
+         right: -35px;
+         top: 50%;
+         margin-top: -12px;
+         width: 24px;
+         height: 24px;
+         border: 2px solid var(--icons-color);
+         border-left-color: transparent;
+         border-right-color: transparent;
+         border-radius: 50%;
+         opacity: 0;
+         transition: opacity 0.5s;
+         animation: 0.8s linear infinite rotate;
+       }
+       &_sending{
+         pointer-events: none;
+         cursor: not-allowed;
+         &:before {
+            transition-duration: 1s;
+            opacity: 1;
+          } 
+      }     
+      @keyframes rotate {
+         0% {
+           transform: rotate(0deg);
+         }
+         100% {
+           transform: rotate(360deg);
+         }
+       }
    }
 }
+

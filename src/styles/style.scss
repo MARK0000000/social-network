@@ -178,26 +178,3 @@ body{
 
 @import './pages/pagesMedia';
 @import 'media';
-
-
-.post-enter {
-   opacity: 0;
-}
-.post-enter-active {
-   opacity: 1;
-   transition: opacity 500ms ease-in;
-}
-.post-exit {
-   opacity: 1;
-}
-.post-exit-active {
-   opacity: 0;
-   transition: opacity 500ms ease-in;
-}
-@keyframes fadeIn {
-   from { opacity: 0; }
-   to { opacity: 1; }
- }
-.divv{
-   animation: fadeIn 2s  ;
-}

@@ -41,6 +41,12 @@ h2{
    font-size: $textH2Desktop;
    color: var(--text-color);
 }
+h3 {
+   font-family: 'Montserrat', sans-serif;
+   font-size: $textH3Desktop;
+   color: var(--text-color);
+   font-weight: 500;
+}
 .container{
    display: flex;
   max-width: 994px;
@@ -69,7 +75,9 @@ h2{
    h2{
       font-size: $textH2Mobile;
    }
-
+   h3{
+      font-size: $textH3Mobile;
+   }
    .container{
       padding: 0 5px;
       min-height: 100%;

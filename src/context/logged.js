@@ -18,12 +18,15 @@ export const LoggedProvider = ({ children }) => {
 //     .finally(() => setIsLoading(false))
 // }, [])
 
-
+  const logOut = () => {
+    setIsLoggedIn(false)
+    localStorage.removeItem('logged')
+  }
 
   useEffect(() => {
-    //localStorage.setItem('logged', 'true')
+    localStorage.setItem('logged', 'true')
 
-    localStorage.removeItem('logged')
+    //localStorage.removeItem('logged')
     if(localStorage.getItem('logged')) {
       setIsLoggedIn(true)
     }
@@ -32,7 +35,7 @@ export const LoggedProvider = ({ children }) => {
 
       
     return (
-        <LoggedContext.Provider value={{isLoggedIn, setIsLoggedIn, isLoading}}>
+        <LoggedContext.Provider value={{isLoggedIn, setIsLoggedIn, isLoading, logOut}}>
             {children}
         </LoggedContext.Provider>
   );

@@ -26,10 +26,20 @@ body{
       height: 32px;
       border-radius: 100px;
       border: 3px solid var(--icons-color);
+      &_settings{
+         margin-left: 20px;
+      }
    }
    &__text{
       color: var(--border-color);
       margin-right: 10px;
+      &_settings{
+         margin-right: 0px;
+      }
+      &_active{
+         color: var(--text-color);
+         text-decoration: underline;
+      }
    }
    &__btn_right{
       justify-content: end;
@@ -96,6 +106,9 @@ body{
    text-align: center;
    line-height: 29px;
    font-size: 14px;
+   &_settings{
+      margin-right: 0px;
+   }
 }
 .main{
    width: 100%;

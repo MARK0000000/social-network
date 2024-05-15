@@ -6,13 +6,14 @@ export const LanguageContext = createContext();
 
 let strings = new LocalizedStrings({
     en: {
+        //pages
         messenger: "Messenger",
         settings: "Settings",
         friends: "Friends",
         recommendations: "Recommendations",
         communities: "Communities",
         news: "News",
-
+        //login
         singIn: "Sing-in",
         singUp: "Sing-up",
         forgotPass: "Forgot your password?",
@@ -25,16 +26,24 @@ let strings = new LocalizedStrings({
         valPassLetters: "The password must include upper and lowercase letters of the Latin alphabet",
         valPassSymbols: "The password must include any two characters",
         valRepPass: "Password mismatch",
-
+        valEmail: 'Enter email',
+        valLogin: 'Enter login',
+        //settings
+        setColorTheme: 'Choose a color scheme',
+        light: 'Light',
+        dark: 'Dark',
+        setLanguagee: 'Choose language',
+        logOut: 'Log out of your account',
     },
     ru: {
+        //pages
         messenger: "Мессенджер",
         settings: "Настройки",
         friends: "Друзья",
         recommendations: "Рекомендации",
         communities: "Сообщества",
         news: "Новости",
-
+        //login
         singIn: "Авторизация",
         singUp: "Регистрация",
         forgotPass: "Забыли пароль",
@@ -47,7 +56,14 @@ let strings = new LocalizedStrings({
         valPassLetters: "Пароль должен включать заглавную и строчную буквы латинского алфавита",
         valPassSymbols: "Пароль должен включать два любых знака",
         valRepPass: "Пароли не совпадают",
-
+        valEmail: 'Введите электронную почту',
+        valLogin: 'Введите логин',
+        //settings
+        setColorTheme: 'Выберите цветовую схему',
+        light: 'Светлая',
+        dark: 'Темная',
+        setLanguagee: 'Выберите язык',
+        logOut: 'Выйти из аккаунта',
 
 
     }
@@ -62,7 +78,7 @@ export const LanguageProvider = ({ children }) => {
     };
     
     return (
-        <LanguageContext.Provider value={{ strings, changeLanguage, language }}>
+        <LanguageContext.Provider value={{ strings, changeLanguage, language, }}>
             {children}
         </LanguageContext.Provider>
   );

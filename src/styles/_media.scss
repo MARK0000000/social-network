@@ -16,9 +16,16 @@
     }
     .color-theme{
         display: none;
+        &_settings{
+        display: flex;
+        margin-top: 10px;
+        }
     }
     .changeLanguage{
         display: none;
+        &_settings{
+            display: block;
+        }
     }
     .mobile-nav{
         border-top:  solid var(--border-color) 2px;

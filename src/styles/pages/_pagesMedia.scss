@@ -53,6 +53,10 @@
     .settings{
         padding: $paddingMobile;
         border-radius: $borderRadiusMobile;
+        &__item:last-child{
+        display: block;
+        height: auto;
+        }
     }
     .profile{
         padding: 0px;

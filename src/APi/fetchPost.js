@@ -7,7 +7,12 @@ export async function fetchPost (data, url) {
             "Content-Type": "application/json",
           },
         });
-        return true;
+        const json = await response.json();
+
+        console.log("Успех:", JSON.stringify(json));
+  
+        localStorage.setItem('logged', 'true')
+        return json;
     } catch (error) {
         console.error("Ошибка:", error);
     }

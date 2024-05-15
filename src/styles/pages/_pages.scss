@@ -58,9 +58,17 @@
    padding: $paddingDesktop;
    border: solid var(--border-color) 2px;
    border-radius: $borderRadiusDesktop;
+   &__item{
+      padding: 5px;
+      height: 40px;
+      @include f (space-between, center);
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--border-color);
+   }
 }
 .profile{
-position: relative;
+   overflow-x: hidden;
+   position: relative;
    height: 100%;
    &__info{
       @extend %block;
@@ -147,6 +155,20 @@ position: relative;
    border: solid var(--border-color) 2px;
    padding: $paddingDesktop;
    border-radius: $borderRadiusDesktop;
+   position: relative;
+   &__backArrow{
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      &:hover{
+         transition: ease-out 0.3s;
+         transform: scale(1.1);
+      }
+   }
+   &__prompt{
+      font-size: 28px;
+      text-align: center;
+   }
    &__form{
    padding: 0 3%;
    }

@@ -34,6 +34,14 @@ let strings = new LocalizedStrings({
         dark: 'Dark',
         setLanguagee: 'Choose language',
         logOut: 'Log out of your account',
+        // infoModal
+        firstName: "First Name",
+        lastName: "Last Name",
+        patronymic: "Patronymic",
+        placeOfResidence: "Place of residence",
+        familyStatus: "Family status",
+        tellAboutYourself: "Tell us about yourself",
+        save: "Save",
     },
     ru: {
         //pages
@@ -64,7 +72,15 @@ let strings = new LocalizedStrings({
         dark: 'Темная',
         setLanguagee: 'Выберите язык',
         logOut: 'Выйти из аккаунта',
-
+        // infoModal
+        firstName: "Имя",
+        lastName: "Фамилия",
+        patronymic: "Отчество",
+        placeOfResidence: "Место проживания",
+        familyStatus: "Семейное положение",
+        tellAboutYourself: "Расскажите о себе",
+        save: "Сохранить",
+        
 
     }
 });

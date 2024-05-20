@@ -6,7 +6,7 @@ import MyButton from '../componenets/UI/button/MyButton';
 import MyInput from '../componenets/UI/input/MyInput';
 import MyLink from "../componenets/UI/link/MyLink";
 import { validatePassword, validateRepeatPassword } from '../utils/validation';
-import { fetchPost } from '../APi/fetchPost';
+import { fetchPost } from '../APi/fetch';
 import MyPasswordInput from '../componenets/UI/input/MyPasswordInput';
 const Login = ({}) => {
   const urlLogUp = "https://localhost:6001/api/Account/register";//!!!!
@@ -83,7 +83,8 @@ const Login = ({}) => {
           username: login,
           password: password,
         }
-        fetchPost(personeData, urlLogUp)
+        const newUser = fetchPost(personeData, urlLogUp);
+        newUser && localStorage.setItem('logged', 'true');
       }
       if(typeOfLog == 'in') {
         setloaderForAuth("_sending")
@@ -91,7 +92,9 @@ const Login = ({}) => {
           username: login,
           password: password,
         }
-        fetchPost(personeData, urlLogIn)
+        const getUser = fetchPost(personeData, urlLogIn);
+        getUser && localStorage.setItem('logged', 'true');
+
       }
     }
   }

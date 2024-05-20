@@ -11,10 +11,11 @@ body{
    background-color: var(--background);
 }
 .color-theme{
-   cursor: pointer;
+   user-select: none;
    display: flex;
    align-items: center;
    &__btn{
+      cursor: pointer;
       margin-right: 20px;
       background-color: transparent;
       display: flex;
@@ -188,6 +189,6 @@ body{
 .mobile-nav{
    display: none;
 }
-
+@import './modals/modalsMedia';
 @import './pages/pagesMedia';
 @import 'media';

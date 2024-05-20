@@ -11,9 +11,18 @@ export async function fetchPost (data, url) {
 
         console.log("Успех:", JSON.stringify(json));
   
-        localStorage.setItem('logged', 'true')
-        return json;
+        return true;
     } catch (error) {
         console.error("Ошибка:", error);
     }
+}
+
+export async function fetchGet (url) {
+  fetch(url)
+  .then((res) => res.json())
+  .then((json) => {
+      return json;
+  })
+  .catch((err) => console.warn(err))
+  //.finally(() => setIsLoading(false))
 }

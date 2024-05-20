@@ -65,6 +65,10 @@
       margin-bottom: 10px;
       border-bottom: 2px solid var(--border-color);
    }
+   &__logOut:hover{
+      scale: 0.9;
+      transition: ease-out 0.3s;
+   }
 }
 .profile{
    overflow-x: hidden;

@@ -1,0 +1,28 @@
+.comment{
+    margin: 10px;
+    max-width: 100%;
+    display: flex;
+    align-items: start;
+    &__text{
+        flex-grow: 1;
+        max-width: 85%;
+        display: flex;
+        padding-right: 15px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__body{
+        text-wrap: wrap;
+        width: 100%;
+    }
+    &__name{
+        text-wrap: nowrap;
+    }
+    &__firstLine{
+        padding-right: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

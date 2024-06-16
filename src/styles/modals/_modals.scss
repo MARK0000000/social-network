@@ -1,3 +1,9 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+
 .modal{
     background-color: rgba($color: #000000, $alpha: 0.3);
     width: 100vw;
@@ -127,15 +133,98 @@
     &__label{
         word-wrap: nowrap;
         color: var(--border-color);
-        margin-right: 15px;
-        flex-basis: 45%;
+        width: 100%;
         text-align: right;
+
+    }
+    &__label-box{
+        flex-basis: 45%;
         border-right: 2px solid var(--icons-color);
         padding-right: 15px;
-        line-height: 45px;
         height: 45px;
+        margin: auto 0;
+        margin-right: 15px;
+        @include f (end, center)
     }
     &__text{
         flex-basis: 55%;
     }
+}
+.photoModal{
+    user-select: none;
+    @extend %disableBlock;
+    @include f (space-between, start);
+    width: 70%;
+    height: 85%;
+    padding: 0;
+    &__photo-box{
+        margin: 0 auto;
+        position: relative;
+        transition: ease-out 0.3s;
+        height: auto;
+        width: 80%;
+        @extend %block;
+        margin-bottom: 0px;
+        &_active{
+            margin: none;
+            width: 55%;
+        }
+    }
+    
+    &__photo{
+        width: 100%;
+        border-radius: 16px;
+        margin-bottom: 30px;
+    }
+    &__comments-container{
+        opacity: 0;
+        margin-left: 10px;
+        visibility: hidden;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        position: absolute;
+        height: 100%;
+        width: 45%;
+        @extend %block;
+        margin-bottom: 0px;
+    }
+    &__comments-container_active{
+        transition: ease-out 0.3s;
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+    }
+    &__comments-box{
+        height: 92%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+    }
+
+    &__writeComment{
+        background-color: var(--background-content);
+        z-index: 4;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border-top: solid 2px var(--border-color);
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        height: 10%;
+    }
+
+    &__hr{
+        width: 100%;
+        height: 2px;
+        border: none;
+        background-color: var(--border-color);
+        color: var(--border-color);
+        position: absolute;
+        margin-top: -15px;
+        left: 0;
+        right: 0;
+    }
+
 }

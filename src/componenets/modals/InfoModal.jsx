@@ -18,27 +18,39 @@ export default function InfoModal({className, onClick}) {
       </svg>
       <div className='modal__content infoModal' onClick={event => event.stopPropagation()}>
         <div className="infoModal__item">
-          <p className="infoModal__label">{strings.firstName}</p>
+          <div className="infoModal__label-box">
+            <p className="infoModal__label">{strings.firstName}</p>
+          </div>
           <p className="infoModal__text">Что-то там</p>
         </div>
         <div className="infoModal__item">
-          <p className="infoModal__label">{strings.lastName}</p>
+          <div className="infoModal__label-box">
+            <p className="infoModal__label">{strings.lastName}</p>
+          </div>
           <p className="infoModal__text">Что-то там</p>
         </div>
         <div className="infoModal__item">
-          <p className="infoModal__label">{strings.patronymic}</p>
+          <div className="infoModal__label-box">
+            <p className="infoModal__label">{strings.patronymic}</p>
+          </div>
           <p className="infoModal__text">Что-то там</p>
         </div>
         <div className="infoModal__item">
-          <p className="infoModal__label">{strings.placeOfResidence}</p>
+          <div className="infoModal__label-box">
+            <p className="infoModal__label">{strings.placeOfResidence}</p>
+          </div>
           <p className="infoModal__text">Что-то там</p>
         </div>
         <div className="infoModal__item">
-          <p className="infoModal__label">{strings.familyStatus}</p>
+          <div className="infoModal__label-box">
+            <p className="infoModal__label">{strings.familyStatus}</p>
+          </div>
           <p className="infoModal__text">Что-то там</p>
         </div>
         <div className="infoModal__item">
-          <p className="infoModal__label">{strings.tellAboutYourself}</p>
+          <div className="infoModal__label-box">
+            <p className="infoModal__label">{strings.tellAboutYourself}</p>
+          </div>
           <p className="infoModal__text">Что-то там</p>
         </div>
       </div>

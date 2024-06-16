@@ -31,6 +31,14 @@
     padding: $paddingDesktop;
     border: solid var(--border-color) 2px;
 }
+%disableBlock{
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
 %block_mobile{
     background-color: var(--background-content);
     margin-bottom: 5px;

@@ -2,7 +2,6 @@ import React, {useState, useContext, useEffect, useRef} from 'react';
 import { LoggedContext } from '../context/logged';
 import { LanguageContext } from '../context/language';
 import { useNavigate, useLocation} from 'react-router-dom';
-import MyButton from '../componenets/UI/button/MyButton';
 import MyInput from '../componenets/UI/input/MyInput';
 import MyLink from "../componenets/UI/link/MyLink";
 import { validatePassword, validateRepeatPassword } from '../utils/validation';

@@ -1,0 +1,26 @@
+.icon{
+    cursor: pointer;
+    user-select: none;
+    height: 32px;    
+    border: solid var(--border-color) 2px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    &__container{
+        display: inline-block;
+    }
+    &__content{
+        margin-right: 5px;
+        margin-left: 10px;
+    }
+    &__iconPath{
+        &_active{
+            fill: #6750A4;
+            stroke: none;
+        }
+        
+    }
+    &__text{
+        margin-right: 10px;
+    }
+}

@@ -42,6 +42,10 @@ let strings = new LocalizedStrings({
         familyStatus: "Family status",
         tellAboutYourself: "Tell us about yourself",
         save: "Save",
+        //photoModal
+        comments: "Comments",
+        writeComment: "Write a comment",
+
     },
     ru: {
         //pages
@@ -80,7 +84,10 @@ let strings = new LocalizedStrings({
         familyStatus: "Семейное положение",
         tellAboutYourself: "Расскажите о себе",
         save: "Сохранить",
-        
+        //photoModal
+        comments: "Коментарии",
+        writeComment: "Написать коментарий",
+
 
     }
 });

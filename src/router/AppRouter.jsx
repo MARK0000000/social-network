@@ -1,40 +1,28 @@
 import React, {useContext, useEffect} from 'react';
-import IsLogged from './Islogged'
 import { Routes, Route, useNavigate} from 'react-router-dom';
 import Main from '../componenets/Main';
 import { privateRoute } from '.';
-import { LoggedContext } from '../context/logged';
 import Login from '../pages/Login';
 import News from '../pages/News';
+import { AuthProvider } from '../hooks/useAuth';
+import { ProtectedRoute } from './ProtectedRoute';
 function AppRouter() {
-   const navigate = useNavigate()
-   const {isLoggedIn, isLoading} = useContext(LoggedContext)
-
-   useEffect(()=> {
-      if(!isLoggedIn) {
-         return navigate('login', { replace: true });
-      } 
-   }, [isLoggedIn, navigate, isLoading])
-
-
-   if (isLoading) {
-      return <div>Loading</div>
-   }
 
    return (
-      <Routes>
-         <Route path='*' element={<IsLogged/>}/>
-         <Route path='login' element={<Login/>}/>
-            {/* <Route index element={<News/>}/> */}
-            isLoggedIn || (
-               <Route path="/" element={<Main />}>
-                  {privateRoute.map((route) => (
-                     <Route index path={route.path} element={route.element} key={route.path} />
-                  ))}
-               </Route>
-            ) 
-            
-      </Routes>
+      <AuthProvider>
+         <Routes>
+            <Route path='/login' element={<Login/>}/>
+                  <Route path="/" element={
+                     <ProtectedRoute>
+                        <Main />
+                     </ProtectedRoute>
+                  }>
+                     {privateRoute.map((route) => (
+                        <Route index path={route.path} element={route.element} key={route.path} />
+                     ))}
+                  </Route>
+         </Routes>
+      </AuthProvider>
    )
 }
 

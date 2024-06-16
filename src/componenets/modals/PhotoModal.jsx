@@ -50,13 +50,13 @@ export default function PhotoModal({showComments, setShowComments, className, on
       <div className={`photoModal__comments-container ${showComments == true ? 'photoModal__comments-container_active' : ''}`}>
         <div className='photoModal__comments-box'>
           <h2>{strings.comments}</h2>
-          {commentsArray && commentsArray.map((item) => 
-            <MyComment photo={item.photo} date={item.date} name={item.name} body={item.body}/>
+          {commentsArray && commentsArray.map((item, index) => 
+            <MyComment photo={item.photo} date={item.date} name={item.name} body={item.body} key={index}/>
           )}   
         </div>
         <div className="photoModal__writeComment">
           <Avatar photo={ava}/>
-          <MySendMessageInput addComment={addComment} ref={commentInput} placeholder={strings.writeComment}/>
+          <MySendMessageInput addcomment={addComment} ref={commentInput} placeholder={strings.writeComment}/>
 
         </div>
       </div>

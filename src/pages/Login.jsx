@@ -1,28 +1,23 @@
 import React, {useState, useContext, useEffect, useRef} from 'react';
-import { LoggedContext } from '../context/logged';
 import { LanguageContext } from '../context/language';
 import { useNavigate, useLocation} from 'react-router-dom';
 import MyInput from '../componenets/UI/input/MyInput';
 import MyLink from "../componenets/UI/link/MyLink";
 import { validatePassword, validateRepeatPassword } from '../utils/validation';
 import { fetchPost } from '../APi/fetch';
+import { useAuth } from '../hooks/useAuth';
 import MyPasswordInput from '../componenets/UI/input/MyPasswordInput';
+
+
 const Login = ({}) => {
   const urlLogUp = "https://localhost:6001/api/Account/register";//!!!!
   const urlLogIn = "https://localhost:6001/api/Account/login"
   const urlForRecive = "https://localhost:7279/api/Account/login"
 
   const {strings} = useContext(LanguageContext);
-  const {isLoggedIn, setIsLoggedIn} = useContext(LoggedContext)
 
   const [typeOfLog, setTypeOfLog] = useState('in')
-
-  const navigate = useNavigate()
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('news', { replace: true }); 
-    }  
-  }, [navigate, isLoggedIn]);
+  const {login} = useAuth()
 
   const emailInput = useRef();
   const loginInput = useRef();
@@ -37,8 +32,9 @@ const Login = ({}) => {
   const [loaderForAuth, setloaderForAuth] = useState('')
 
 
-  const  login = event => {
+  const  handleLogin = async (event) => {
     event.preventDefault()
+
 
     let email, login, password, repeatPassword;
 
@@ -82,8 +78,8 @@ const Login = ({}) => {
           username: login,
           password: password,
         }
-        const newUser = fetchPost(personeData, urlLogUp);
-        newUser && localStorage.setItem('logged', 'true');
+        const  newUser = await fetchPost(personeData, urlLogUp);
+        newUser && await login( newUser );
       }
       if(typeOfLog == 'in') {
         setloaderForAuth("_sending")
@@ -91,12 +87,12 @@ const Login = ({}) => {
           username: login,
           password: password,
         }
-        const getUser = fetchPost(personeData, urlLogIn);
-        getUser && localStorage.setItem('logged', 'true');
-
+        const getUser = await fetchPost(personeData, urlLogIn);
+        getUser && await login( getUser );
       }
     }
   }
+  
   const restorePassword = event => {
     event.preventDefault()
     let email, code, password, repeatPassword;
@@ -171,7 +167,7 @@ const Login = ({}) => {
             <span className='login__title_slash'>  /  </span>
             <span onClick={() => setTypeOfLog('up')} className={`${typeOfLog == "up" ? "active" : ""}`}>{strings.singUp}</span>
           </h1>
-          <form className='login__form' onSubmit={login}>
+          <form className='login__form' onSubmit={handleLogin}>
             {typeOfLog === 'up' && 
                 <MyInput type="email" placeholder='email' ref={emailInput}  onFocus={() => setEmailVal('')}/> 
             }
@@ -220,6 +216,7 @@ const Login = ({}) => {
       </div>
     );
   }
-} 
+}
+
 
 export default Login;

@@ -81,7 +81,7 @@ export default function ProfilePhotoes() {
       likeCount: 10,
 },
   ]);
-  let lastThreePhoto = photo.slice(2)
+  let lastThreePhoto = photo.slice(-3)
   console.log(lastThreePhoto)
   useEffect(() => {
     //const result = fetchGet("hjdf");
@@ -103,7 +103,7 @@ export default function ProfilePhotoes() {
       <span className='profile__photos-text'>Photos 0</span>
       <div className='profile__photos-box'>
         {lastThreePhoto.map((item, index) => 
-          <img onClick={() => showPhotoModal(true, index)} src={item.img} alt="" />
+          <img onClick={() => showPhotoModal(true, index)} key={index} src={item.img} alt="" />
         )}
       </div>
       <div className="profile__photos-buttons">

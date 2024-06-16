@@ -3,7 +3,6 @@ import { ThemeProvider } from "./context/theme";
 import { BrowserRouter, HashRouter} from 'react-router-dom';
 import AppRouter from "./router/AppRouter";
 import { LanguageProvider } from "./context/language";
-import { LoggedProvider } from "./context/logged";
 function App() {
 
 
@@ -11,11 +10,9 @@ function App() {
    <div>
     <ThemeProvider>
       <LanguageProvider>
-        <LoggedProvider>
           <HashRouter>
             <AppRouter/>
           </HashRouter>
-        </LoggedProvider>
       </LanguageProvider>
     </ThemeProvider>
    </div>
@@ -23,4 +20,5 @@ function App() {
 }
 
 export default App;
+
 

@@ -11,7 +11,7 @@ export async function fetchPost (data, url) {
 
         console.log("Успех:", JSON.stringify(json));
   
-        return true;
+        return json;
     } catch (error) {
         console.error("Ошибка:", error);
     }

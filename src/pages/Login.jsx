@@ -1,6 +1,5 @@
 import React, {useState, useContext, useEffect, useRef} from 'react';
 import { LanguageContext } from '../context/language';
-import { useNavigate, useLocation} from 'react-router-dom';
 import MyInput from '../componenets/UI/input/MyInput';
 import MyLink from "../componenets/UI/link/MyLink";
 import { validatePassword, validateRepeatPassword } from '../utils/validation';
@@ -36,15 +35,15 @@ const Login = ({}) => {
     event.preventDefault()
 
 
-    let email, login, password, repeatPassword;
+    let email, loginFromInput, password, repeatPassword;
 
     if (typeOfLog == 'up') {
       email = emailInput.current.value;
-      login = loginInput.current.value;
+      loginFromInput = loginInput.current.value;
       password = passwordInput.current.value;
       repeatPassword = repeatPasswordInput.current.value;
     } else {
-      login = loginInput.current.value;
+      loginFromInput = loginInput.current.value;
       password = passwordInput.current.value;
     }
 
@@ -54,7 +53,7 @@ const Login = ({}) => {
       return;
     } 
 
-    if (login === "") {
+    if (loginFromInput === "") {
       setLoginVal(`${strings.valLogin}`)
       return;
     }
@@ -75,16 +74,17 @@ const Login = ({}) => {
         setloaderForAuth("_sending")
         const personeData = {
           email: email,
-          username: login,
+          username: loginFromInput,
           password: password,
         }
         const  newUser = await fetchPost(personeData, urlLogUp);
+        console.log(newUser)
         newUser && await login( newUser );
       }
       if(typeOfLog == 'in') {
         setloaderForAuth("_sending")
         const personeData = {
-          username: login,
+          username: loginFromInput,
           password: password,
         }
         const getUser = await fetchPost(personeData, urlLogIn);

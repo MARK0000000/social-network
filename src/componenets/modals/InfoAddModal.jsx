@@ -10,6 +10,7 @@ import { fetchPost } from '../../APi/fetch'
 export default function InfoAddModal({className, onClick}) {
   const {strings} = useContext(LanguageContext);
 
+
   const fileInput = useRef();
   const firstNameInput = useRef();
   const lastNameInput = useRef();

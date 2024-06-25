@@ -8,7 +8,6 @@ import Friends from '../pages/Friends'
 import Massenger from '../pages/Messenger'
 
 export const privateRoute = [
-   {path: 'news', element: <News/>},
    {path: 'recommendations', element: <Recommendations/>},
    {path: 'communities', element: <Communities/>},
    {path: 'friends', element: <Friends/>},

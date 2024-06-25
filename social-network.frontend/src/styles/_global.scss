@@ -10,7 +10,9 @@
    border: none;
 }
 
-
+*{
+   -webkit-tap-highlight-color: transparent;
+}
 html{
    overflow-x: hidden;
    overflow-y: hidden;

@@ -29,70 +29,75 @@ const Login = ({}) => {
   const [passwordVal, setPasswordVal] = useState([])
   const [repPasswordVal, setRepPasswordVal] = useState("")
   const [loaderForAuth, setloaderForAuth] = useState('')
-
-
-  const  handleLogin = async (event) => {
-    event.preventDefault()
-
-
-    let email, loginFromInput, password, repeatPassword;
-
-    if (typeOfLog == 'up') {
-      email = emailInput.current.value;
-      loginFromInput = loginInput.current.value;
-      password = passwordInput.current.value;
-      repeatPassword = repeatPasswordInput.current.value;
-    } else {
-      loginFromInput = loginInput.current.value;
-      password = passwordInput.current.value;
-    }
-
-
-    if (email === "") {
-      setEmailVal(`${strings.valEmail}`)
-      return;
-    } 
-
-    if (loginFromInput === "") {
-      setLoginVal(`${strings.valLogin}`)
-      return;
-    }
-
-    let validationPassword = validatePassword(password)
-    if (validationPassword !== true) {
-      setPasswordVal(validationPassword.map(error => `${strings[error]}`));
-      return;
-    }
-
-    let validationRepeatPassword =  validateRepeatPassword(password, repeatPassword, typeOfLog)
-    if (validationRepeatPassword !== true) {
-      setRepPasswordVal(`${strings[validationRepeatPassword]}\n`)
-      return;
-
-    } else {
-      if(typeOfLog == 'up') {
-        setloaderForAuth("_sending")
-        const personeData = {
-          email: email,
-          username: loginFromInput,
-          password: password,
-        }
-        const  newUser = await fetchPost(personeData, urlLogUp);
-        console.log(newUser)
-        newUser && await login( newUser );
-      }
-      if(typeOfLog == 'in') {
-        setloaderForAuth("_sending")
-        const personeData = {
-          username: loginFromInput,
-          password: password,
-        }
-        const getUser = await fetchPost(personeData, urlLogIn);
-        getUser && await login( getUser );
-      }
-    }
-  }
   
+  const handleLogin = event => {
+    event.preventDefault()
+    login( "mark" )
+
+  }
+
+  // const  handleLogin = async (event) => {
+  //   event.preventDefault()
+
+
+  //   let email, loginFromInput, password, repeatPassword;
+
+  //   if (typeOfLog == 'up') {
+  //     email = emailInput.current.value;
+  //     loginFromInput = loginInput.current.value;
+  //     password = passwordInput.current.value;
+  //     repeatPassword = repeatPasswordInput.current.value;
+  //   } else {
+  //     loginFromInput = loginInput.current.value;
+  //     password = passwordInput.current.value;
+  //   }
+
+
+  //   if (email === "") {
+  //     setEmailVal(`${strings.valEmail}`)
+  //     return;
+  //   } 
+
+  //   if (loginFromInput === "") {
+  //     setLoginVal(`${strings.valLogin}`)
+  //     return;
+  //   }
+
+  //   let validationPassword = validatePassword(password)
+  //   if (validationPassword !== true) {
+  //     setPasswordVal(validationPassword.map(error => `${strings[error]}`));
+  //     return;
+  //   }
+
+  //   let validationRepeatPassword =  validateRepeatPassword(password, repeatPassword, typeOfLog)
+  //   if (validationRepeatPassword !== true) {
+  //     setRepPasswordVal(`${strings[validationRepeatPassword]}\n`)
+  //     return;
+
+  //   } else {
+  //     if(typeOfLog == 'up') {
+  //       setloaderForAuth("_sending")
+  //       const personeData = {
+  //         email: email,
+  //         username: loginFromInput,
+  //         password: password,
+  //       }
+  //       const  newUser = await fetchPost(personeData, urlLogUp);
+  //       console.log(newUser)
+  //       newUser && await login( newUser );
+  //     }
+  //     if(typeOfLog == 'in') {
+  //       setloaderForAuth("_sending")
+  //       const personeData = {
+  //         username: loginFromInput,
+  //         password: password,
+  //       }
+  //       const getUser = await fetchPost(personeData, urlLogIn);
+  //       getUser && await login( getUser );
+  //     }
+  //   }
+  // }
+
   const restorePassword = event => {
     event.preventDefault()
     let email, code, password, repeatPassword;

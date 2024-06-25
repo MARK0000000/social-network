@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import { Routes, Route, useNavigate} from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate} from 'react-router-dom';
 import Main from '../componenets/Main';
 import { privateRoute } from '.';
 import Login from '../pages/Login';
@@ -12,15 +12,17 @@ function AppRouter() {
       <AuthProvider>
          <Routes>
             <Route path='/login' element={<Login/>}/>
-                  <Route path="/" element={
-                     <ProtectedRoute>
-                        <Main />
-                     </ProtectedRoute>
-                  }>
-                     {privateRoute.map((route) => (
-                        <Route index path={route.path} element={route.element} key={route.path} />
-                     ))}
-                  </Route>
+            <Route path="/" element={
+                  <ProtectedRoute>
+                     <Main />
+                  </ProtectedRoute>
+            }>
+                  <Route path={"/news"} element={<News/>}/>
+                  <Route index element={<Navigate to="/news" />} />
+                  {privateRoute.map((route) => (
+                     <Route path={route.path} element={route.element} key={route.path} />
+                  ))}
+            </Route>
          </Routes>
       </AuthProvider>
    )

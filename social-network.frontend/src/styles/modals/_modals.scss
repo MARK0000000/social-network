@@ -34,7 +34,6 @@
         overflow-y: scroll;
         position: fixed;
         z-index: 3;
-        width: 75%;
         max-height: 85%;
         left: 50%;
         top: 50%;
@@ -79,6 +78,7 @@
         text-align: right;
     }
     &__label_file{
+        cursor: pointer;
         z-index: 5;
         display: inline-block;
         position: absolute;
@@ -157,50 +157,50 @@
     width: 70%;
     height: 85%;
     padding: 0;
-    &__photo-box{
+    &__content{
         margin: 0 auto;
         position: relative;
         transition: ease-out 0.3s;
-        height: auto;
-        width: 80%;
+        max-height: 100%;
+        width: 100%;
         @extend %block;
         margin-bottom: 0px;
-        &_active{
-            margin: none;
-            width: 55%;
-        }
     }
-    
+    &__photo-box{
+        display: flex;
+        justify-content: center;
+    }
     &__photo{
-        width: 100%;
-        border-radius: 16px;
-        margin-bottom: 30px;
+        max-height: 65vh;
+        width: 100%; 
+        object-fit: contain; 
     }
     &__comments-container{
         opacity: 0;
         margin-left: 10px;
         visibility: hidden;
-        overflow-y: hidden;
+        overflow-y: scroll;
         overflow-x: hidden;
         position: absolute;
         height: 100%;
-        width: 45%;
+        width: 70%;
         @extend %block;
         margin-bottom: 0px;
+        padding: 0;
     }
     &__comments-container_active{
         transition: ease-out 0.3s;
         position: relative;
         visibility: visible;
         opacity: 1;
+        overflow-y: hidden;
     }
     &__comments-box{
-        height: 92%;
-        overflow-y: scroll;
+        padding: 15px;
+        height: 90%;
         overflow-x: hidden;
 
     }
-
     &__writeComment{
         background-color: var(--background-content);
         z-index: 4;
@@ -221,10 +221,72 @@
         border: none;
         background-color: var(--border-color);
         color: var(--border-color);
-        position: absolute;
-        margin-top: -15px;
-        left: 0;
-        right: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    &__icons-box{
     }
 
+}
+.addPhotoModal{
+    height: 40%;
+    width: 40vh;
+    margin: 0px auto;
+    form{
+        width: 100%;
+        height: 100%;
+    }
+    &__box{
+        width: 100%;
+        height: 100%;
+        border: solid var(--icons-color) 2px;
+        border-radius: $borderRadiusDesktop;
+        padding: $paddingDesktop;    
+    }
+    &__label_file{
+        cursor: pointer;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        svg{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -55%);        
+        }
+        &:hover{
+            svg{
+                stroke: rgba(103, 80, 164, 1);
+                transition: ease-out 0.15S;
+            }
+        }
+    }
+    &__input_file{
+        visibility: hidden;
+        display: none;
+    }
+}
+.photoViewModal{
+    max-width: 75%;
+    min-height: 85%;
+    &__box {
+        max-width: 1010px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: $borderRadiusDesktop; 
+        justify-content: center; 
+    }
+    &__item {
+        width: 100%;
+        height: 275px;
+        border-radius: $borderRadiusDesktop;
+        border: 2px solid var(--border-color);
+    }
+    &__img{
+        width: 100%;
+        height: 240px;
+        border-radius: $borderRadiusDesktop;
+        object-fit: cover;
+        border-bottom: 2px solid var(--border-color);
+    }
 }

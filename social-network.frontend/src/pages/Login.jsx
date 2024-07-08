@@ -77,23 +77,23 @@ const Login = ({}) => {
   //   } else {
   //     if(typeOfLog == 'up') {
   //       setloaderForAuth("_sending")
-  //       const personeData = {
+  //       const personData = {
   //         email: email,
   //         username: loginFromInput,
   //         password: password,
   //       }
-  //       const  newUser = await fetchPost(personeData, urlLogUp);
+  //       const  newUser = await fetchPost(personData, urlLogUp);
   //       console.log(newUser)
   //       newUser && await login( newUser );
   //     }
   //     if(typeOfLog == 'in') {
   //       setloaderForAuth("_sending")
-  //       const personeData = {
+  //       const personData = {
   //         username: loginFromInput,
   //         password: password,
   //       }
-  //       const getUser = await fetchPost(personeData, urlLogIn);
-  //       getUser && await login( getUser );
+  //      const getUser = await fetchPost(personData, urlLogIn);
+  //      getUser && await login( getUser );
   //     }
   //   }
   // }

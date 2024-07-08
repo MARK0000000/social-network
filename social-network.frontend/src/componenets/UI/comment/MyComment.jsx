@@ -4,14 +4,14 @@ import Avatar from '../avatar/Avatar'
 export default function Person({photo,name, date, body}) {
   return (
     <div className={classes.comment}>
-        <Avatar photo={photo}/>
-        <div className={classes.comment__text}>
+        <div className={classes.comment__head}>
+            <Avatar photo={photo}/>
             <p className={classes.comment__firstLine}>
               <span className={classes.comment__name}>{name}</span>
               <span className={classes.comment__date}>{date}</span>
             </p>
-            <p className={classes.comment__body}>{body}</p>
         </div>
+        <p className={classes.comment__body}>{body}</p>
     </div>
   )
 }

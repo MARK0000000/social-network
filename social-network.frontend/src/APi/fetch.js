@@ -24,5 +24,4 @@ export async function fetchGet (url) {
       return json;
   })
   .catch((err) => console.warn(err))
-  //.finally(() => setIsLoading(false))
 }

@@ -122,21 +122,26 @@
          display: flex;
       }
    }
-   &__photos{
+   &__photo{
       @extend %block;
       &-text{
          display: block;
          margin-bottom: 15px;
       }
       &-box{
-         columns: 3;
-         height: 20vh;
+         columns: auto 200px; /* Ширина колонок 200px, количество колонок автоматическое */
+         column-gap: 16px; /* Промежуток между колонками */
+         justify-content: center;
+         height: 200px;
          img{
+            box-sizing: border-box;
             width: 100%;
-            height: 100%;
+            height: 200px;
             border-radius: 16px;
+            display: inline-block;
             border: 2px solid var(--border-color);
             object-fit: cover;
+            break-inside: avoid; /* Предотвращает разрыв элементов внутри колонок */
          }
       }
       &-buttons{
